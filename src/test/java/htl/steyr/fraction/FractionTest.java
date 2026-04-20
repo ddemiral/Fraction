@@ -65,6 +65,14 @@ class FractionTest {
     }
 
     @Test
+    void shorten() throws DenominatorException {
+        Fraction f1 = new Fraction(20, 12);
+        Fraction result = f1.shorten();
+        assertEquals(5, result.getNumerator());
+        assertEquals(3, result.getDenominator());
+    }
+
+    @Test
     void getNumerator() throws DenominatorException {
         Fraction f = new Fraction(10, 7);
         assertEquals(10, f.getNumerator());
@@ -81,7 +89,7 @@ class FractionTest {
         f.setDenominator(10);
         assertEquals(10, f.getDenominator());
 
-        assertThrows(DenominatorException.class, () -> f.setDenominator(1));
+        assertThrows(DenominatorException.class, () -> f.setDenominator(0));
     }
 
     @Test
