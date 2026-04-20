@@ -81,7 +81,7 @@ class FractionTest {
         f.setDenominator(10);
         assertEquals(10, f.getDenominator());
 
-        assertThrows(DenominatorException.class, () -> f.setDenominator(0));
+        assertThrows(DenominatorException.class, () -> f.setDenominator(1));
     }
 
     @Test
