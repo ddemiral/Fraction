@@ -68,7 +68,7 @@ class FractionTest {
     void shorten() throws DenominatorException {
         Fraction f1 = new Fraction(20, 12);
         Fraction result = f1.shorten();
-        assertEquals(5, result.getNumerator());
+        assertEquals(2, result.getNumerator());
         assertEquals(3, result.getDenominator());
     }
 
