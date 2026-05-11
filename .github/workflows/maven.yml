@@ -34,6 +34,8 @@ jobs:
          server: rathgeb.at
          username: f018212f
          password: HTL-Steyr4400
+         port: 21
+         protocol: ftp
          # The local folder where the JAR lives
          local-dir: ./target/
          # Only upload the JAR, ignore the messy Maven folders
