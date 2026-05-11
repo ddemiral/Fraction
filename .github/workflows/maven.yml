@@ -31,7 +31,6 @@ jobs:
           name: java-app-binary
           path: target/*.jar
           retention-days: 5 # Optional: clean up old files after 5 days a
-
       - name: Run Tests
         run: mvn test
           
