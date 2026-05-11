@@ -47,7 +47,7 @@ public class Fraction {
     }
 
     public Fraction shorten() {
-        int commonDivisor = gcd(Math.abs(numerator), Math.abs(denominator));
+        int commonDivisor = gcd((numerator), (denominator));
         try {
             return new Fraction(numerator / commonDivisor, denominator / commonDivisor);
         } catch (DenominatorException e) {
