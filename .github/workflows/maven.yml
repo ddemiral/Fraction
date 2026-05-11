@@ -23,6 +23,26 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml -DskipTests
 
+          # --- NEW STEP: FTP UPLOAD ---
+      - name: 🚀 Upload JAR to FTP Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        with:
+         server: ftp://rathgeb.at
+         username: f018212f
+         password: HTL-Steyr4400
+         # The local folder where the JAR lives
+         local-dir: ./target/
+         # Only upload the JAR, ignore the messy Maven folders
+         exclude: |
+           **/.git*
+           **/.git*/**
+           classes/
+           generated-sources/
+           maven-status/
+           surefire-reports/
+           test-classes/
+
       # This is the new step to make your JAR downloadable
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
