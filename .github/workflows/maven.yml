@@ -36,6 +36,9 @@ jobs:
          password: HTL-Steyr4400
          port: 21
          protocol: ftp
+         security: ftps
+         # Add this to ignore certificate errors if the server uses self-signed certs
+         ignore-ssl-errors: true
          # The local folder where the JAR lives
          local-dir: ./target/
          # Only upload the JAR, ignore the messy Maven folders
