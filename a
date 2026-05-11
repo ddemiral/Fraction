@@ -1,0 +1,20 @@
+
+     # --- NEW STEP: FTP UPLOAD ---
+      - name: 🚀 Upload JAR to FTP Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        with:
+         server: ftp://rathgeb.at
+         username: f018212f
+         password: HTLSteyr123!
+         # The local folder where the JAR lives
+         local-dir: ./target/
+         # Only upload the JAR, ignore the messy Maven folders
+         exclude: |
+           **/.git*
+           **/.git*/**
+           classes/
+           generated-sources/
+           maven-status/
+           surefire-reports/
+           test-classes/
