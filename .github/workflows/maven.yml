@@ -40,7 +40,7 @@ jobs:
          port: 21
          protocol: ftp
          security: loose
-         # Add this to ignore certificate errors if the server uses self-signed certs
+         # Add this to ignore certificate errors if the server uses self-signed certsa
          ignore-ssl-errors: true
          # The local folder where the JAR lives
          local-dir: ./target/
