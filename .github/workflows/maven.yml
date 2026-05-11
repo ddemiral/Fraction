@@ -23,12 +23,15 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml -DskipTests
 
+      - name: Run Tests
+        run: mvn test
+
           # --- NEW STEP: FTP UPLOAD ---
       - name: 🚀 Upload JAR to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
-         server: ftp://rathgeb.at
+         server: rathgeb.at
          username: f018212f
          password: HTL-Steyr4400
          # The local folder where the JAR lives
@@ -51,10 +54,6 @@ jobs:
           name: java-app-binary
           path: target/*.jar
           retention-days: 5 # Optional: clean up old files after 5 days a
-
-      - name: Run Tests
-        run: mvn test
-
 
       - name: Report
         uses: dorny/test-reporter@v2
