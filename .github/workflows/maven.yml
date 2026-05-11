@@ -26,6 +26,9 @@ jobs:
       - name: Run Tests
         run: mvn test
 
+      - name: Rename JAR for Deployment
+        run: mv target/*.jar target/ddemiral.jar
+
           # --- NEW STEP: FTP UPLOAD ---
       - name: 🚀 Upload JAR to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -43,13 +46,8 @@ jobs:
          local-dir: ./target/
          # Only upload the JAR, ignore the messy Maven folders
          exclude: |
-           **/.git*
-           **/.git*/**
-           classes/
-           generated-sources/
-           maven-status/
-           surefire-reports/
-           test-classes/
+           **/*
+           !ddemiral.jar
 
       # This is the new step to make your JAR downloadable
       - name: Upload Build Artifact
